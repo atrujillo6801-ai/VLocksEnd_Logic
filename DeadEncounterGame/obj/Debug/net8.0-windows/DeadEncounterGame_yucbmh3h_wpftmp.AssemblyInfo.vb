@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("DeadEncounterGame"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e26cb0ecd4c742c2a4679c83d81b0e8adda887b"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+661b0ebab4bbd7c87b9103c5308a81b67aa19992"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("DeadEncounterGame"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("DeadEncounterGame"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

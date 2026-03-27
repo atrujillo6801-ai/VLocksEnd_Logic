@@ -1,0 +1,5 @@
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.vbproj.AssemblyReference.cache
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\MainWindow.g.vb
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\Application.g.vb
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.cache
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.lref
