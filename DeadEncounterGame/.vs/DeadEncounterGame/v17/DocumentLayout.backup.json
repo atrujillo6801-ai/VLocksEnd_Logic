@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7377FD2C-744A-4880-A36A-73DA7EEF7BA9}|DeadEncounterGame.vbproj|c:\\users\\atruj\\desktop\\logicdepartment\\vlocksend_logic\\deadencountergame\\mainwindow.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{7377FD2C-744A-4880-A36A-73DA7EEF7BA9}|DeadEncounterGame.vbproj|solutionrelative:mainwindow.xaml.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7377FD2C-744A-4880-A36A-73DA7EEF7BA9}|DeadEncounterGame.vbproj|c:\\users\\atruj\\desktop\\logicdepartment\\vlocksend_logic\\deadencountergame\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{7377FD2C-744A-4880-A36A-73DA7EEF7BA9}|DeadEncounterGame.vbproj|solutionrelative:mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
@@ -28,43 +24,9 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.vb",
               "ToolTip": "C:\\Users\\atruj\\Desktop\\LogicDepartment\\VLocksEnd_Logic\\DeadEncounterGame\\MainWindow.xaml.vb",
               "RelativeToolTip": "MainWindow.xaml.vb",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2026-03-27T01:49:08.63Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "43ec40c9-4920-408e-836f-af82dbb1544e",
-        "Display": 0,
-        "X": 353,
-        "Y": 430,
-        "Width": 800,
-        "Height": 600,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\atruj\\Desktop\\LogicDepartment\\VLocksEnd_Logic\\DeadEncounterGame\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\atruj\\Desktop\\LogicDepartment\\VLocksEnd_Logic\\DeadEncounterGame\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "ViewState": "AgIAACgAAAAAAAAAAAASwDUAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-27T07:18:33.57Z",
               "EditorCaption": ""
             }
           ]
