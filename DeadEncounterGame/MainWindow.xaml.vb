@@ -7,6 +7,8 @@ Imports System.IO
 Class MainWindow
 
     Dim currentRoom As Room
+    Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
+
 
     ' This runs when player clicks a direction button (e.g. "Go North")
     Private Sub AddToLog(message As String)
@@ -18,7 +20,7 @@ Class MainWindow
         ' Check if the current room has a "North" exit
         If currentRoom.Exits.ContainsKey("North") Then
             Dim nextRoomName As String = currentRoom.Exits("North")
-            currentRoom = gameRooms(nextRoomName)  ' gameRooms is a Dictionary of all rooms
+            currentRoom = gameRooms(nextRoomName)  ' gameRooms is a Dictionary of all rooms, so HOW DO I DECLARE A DICTIONARY?
             UpdateRoomDisplay()
         Else
             AddToLog("There is no path to the north.")
