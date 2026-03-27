@@ -168,7 +168,7 @@ Namespace DeadEncounterGame
                 Return
             End If
             _contentLoaded = true
-            Dim resourceLocater As System.Uri = New System.Uri("/DeadEncounterGame;V1.0.0.0;component/mainwindow.xaml", System.UriKind.Relative)
+            Dim resourceLocater As System.Uri = New System.Uri("/DeadEncounterGame;component/mainwindow.xaml", System.UriKind.Relative)
             
             #ExternalSource("..\..\..\MainWindow.xaml",1)
             System.Windows.Application.LoadComponent(Me, resourceLocater)
