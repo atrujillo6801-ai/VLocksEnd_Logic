@@ -9,6 +9,10 @@ Class MainWindow
     Dim currentRoom As Room
 
     ' This runs when player clicks a direction button (e.g. "Go North")
+    Private Sub AddToLog(message As String)
+        txtCombatLog.AppendText(vbCrLf & message)
+        txtCombatLog.ScrollToEnd()
+    End Sub
 
     Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs)
         ' Check if the current room has a "North" exit
@@ -24,7 +28,7 @@ Class MainWindow
     ' Helper: updates all UI elements to show the current room
     Private Sub UpdateRoomDisplay()
         lblRoomName.Content = currentRoom.Name
-        txtRoomDescription.Text = currentRoom.Description
+        txtRoomDescription.Text = currentRoom.Description 'there is no current text box for RoomDescription
 
         ' Show/hide direction buttons based on available exits
         btnNorth.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)
