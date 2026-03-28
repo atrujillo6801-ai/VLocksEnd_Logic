@@ -3,12 +3,49 @@
 Imports Newtonsoft.Json
 Imports System.IO
 
-
+' Simple class to hold save data (put this OUTSIDE the MainWindow class)
+Public Class SaveData
+    Public Property Name As String
+    Public Property Health As Integer
+    Public Property MaxHealth As Integer
+    Public Property AttackPower As Integer
+    Public Property Gold As Integer
+    Public Property CurrentRoom As String
+    Public Property Inventory As New List(Of String)
+End Class
 Class MainWindow
 
     Dim currentRoom As Room
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
+
+    Private Sub LoadGame()
+        Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
+
+        If Not File.Exists(savePath) Then
+            AddToLog("No save file found. Starting new game.")
+            Return
+        End If
+
+        Dim json As String = File.ReadAllText(savePath)
+        Dim saveData As SaveData = JsonConvert.DeserializeObject(Of SaveData)(json)
+
+        ' Restore the player from saved data
+        player = New Player(saveData.Name)
+        player.Health = saveData.Health
+        player.MaxHealth = saveData.MaxHealth
+        player.AttackPower = saveData.AttackPower
+        player.Gold = saveData.Gold
+        player.Inventory = saveData.Inventory
+
+        ' Restore the room
+        currentRoom = gameRooms(saveData.CurrentRoom)
+
+        UpdateRoomDisplay()
+        UpdateHealthBars()
+        UpdateInventoryDisplay()
+        AddToLog("Save loaded. Welcome back, " & player.Name & "!")
+    End Sub
 
     Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs)
         Dim enemy As Enemy = currentRoom.Enemy
@@ -128,7 +165,21 @@ Class MainWindow
 
 
 
+    Private Sub SaveGame()
+        Dim saveData As New SaveData ' a simple data-transfer class (see below)
+        saveData.Name = player.Name
+        saveData.Health = player.Health
+        saveData.MaxHealth = player.MaxHealth
+        saveData.AttackPower = player.AttackPower
+        saveData.Gold = player.Gold
+        saveData.CurrentRoom = currentRoom.Name
+        saveData.Inventory = player.Inventory
 
+        Dim json As String = JsonConvert.SerializeObject(saveData, Formatting.Indented)
+        Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
+        File.WriteAllText(savePath, json)
+        AddToLog("Game saved successfully.")
+    End Sub
 
 
 
