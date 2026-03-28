@@ -41,10 +41,12 @@
             <Label x:Name="lblRoomName" Grid.Row="0"
              Content="Entrance Hall" Foreground="#F0D080"
              FontSize="22" FontWeight="Bold" Margin="10,10,10,0"/>
-
+          
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"
              Margin="10"/>
-
+            <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
+                     Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 
+                     Text="Room Description" VerticalAlignment="Top" Width="392" Height="28"/>
             <!-- Direction buttons -->
             <StackPanel Grid.Row="2" Orientation="Horizontal"
                   HorizontalAlignment="Center" Margin="0,6">
@@ -60,7 +62,9 @@
                VerticalScrollBarVisibility="Auto"
                Background="#0E0C0A" Foreground="#C9E0A0"
                FontFamily="Consolas" FontSize="12" Margin="10,4,10,10"/>
-            <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" Margin="0,369,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="392" Height="21"/>
+           
+            <StackPanel x:Name="pnlDialogue" Grid.Row="1" Margin="401,143,33,40"/>
+            <StackPanel Grid.Row="3"/>
         </Grid>
 
         <!-- RIGHT PANEL: Enemy + actions -->
@@ -75,6 +79,8 @@
             <Button x:Name="btnTalkToNpc" Content="💬 Talk"
               Visibility="Collapsed" Margin="10,4"/>
             <Button x:Name="btnSave" Content="💾 Save Game" Margin="10,4"/>
+            <Label x:Name="lblNpcName" Content="NPC Name"/>
+            <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
         </StackPanel>
 
     </Grid>

@@ -78,7 +78,18 @@ Class MainWindow
         End If
     End Sub
 
+    Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs)
+        If currentRoom.NpcName <> "" Then
+            ' Show the dialogue panel (a Grid or StackPanel named pnlDialogue)
+            pnlDialogue.Visibility = Visibility.Visible
+            lblNpcName.Content = currentRoom.NpcName
+            txtNpcDialogue.Text = currentRoom.NpcDialogue
+        End If
+    End Sub
 
+    Private Sub btnCloseDialogue_Click(sender As Object, e As RoutedEventArgs)
+        pnlDialogue.Visibility = Visibility.Collapsed
+    End Sub
 
     Sub ShowGameOver() ' Had to declare from scratch. Used suggestion from VS
         MessageBox.Show("Game Over! Thanks for playing.")
