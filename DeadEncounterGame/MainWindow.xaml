@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:DeadEncounterGame"
         Title="Dead Encounter" Height="700" Width="1000"
         Background="#1A1814">
-
+  
     <Grid>
         <!-- Define 3 columns: left panel | center | right panel -->
         <Grid.ColumnDefinitions>
@@ -43,7 +43,11 @@
              FontSize="22" FontWeight="Bold" Margin="10,10,10,0"/>
           
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"
-             Margin="10"/>
+             Margin="10" Source="/Assets/images/[3] COMBATSCREEN (andy).png">
+                <Image.DataContext>
+                    <local:Room/>
+                </Image.DataContext>
+            </Image>
             <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
                      Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 
                      Text="Room Description" VerticalAlignment="Top" Width="392" Height="28"/>
@@ -62,7 +66,10 @@
                VerticalScrollBarVisibility="Auto"
                Background="#0E0C0A" Foreground="#C9E0A0"
                FontFamily="Consolas" FontSize="12" Margin="10,4,10,10"/>
-           
+             <Canvas Name="GameCanvas" Focusable="True">
+                <!-- The player visual can be added here or via code-behind -->
+                <Rectangle Name="PlayerVisual" Fill="Blue" Width="50" Height="50" />
+            </Canvas>
             <StackPanel x:Name="pnlDialogue" Grid.Row="1" Margin="401,143,33,40"/>
             <StackPanel Grid.Row="3"/>
         </Grid>
@@ -82,6 +89,7 @@
             <Label x:Name="lblNpcName" Content="NPC Name"/>
             <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
         </StackPanel>
+        <Canvas Grid.Column="2"/>
 
     </Grid>
 </Window>
