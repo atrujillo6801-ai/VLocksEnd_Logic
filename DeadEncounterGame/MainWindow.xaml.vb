@@ -15,9 +15,69 @@ Public Class SaveData
 End Class
 Class MainWindow
 
+    Dim message As String = ""
+    Dim start, mainHall, library, storageRoom, medicRoom, breakerRoom As Dictionary(Of String, String)
     Dim currentRoom As Room
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
+
+    Sub New()
+        InitializeComponent()
+        start.Add("North", "X")
+        start.Add("East", "library")
+        start.Add("West", "mainHall")
+        start.Add("South", "X")
+
+        library.Add("North", "X")
+        library.Add("East", "X")
+        library.Add("South", "breakerRoom")
+        library.Add("West", "start")
+
+        breakerRoom.Add("North", "library")
+        breakerRoom.Add("East", "X")
+        breakerRoom.Add("South", "X")
+        breakerRoom.Add("West", "X")
+
+        mainHall.Add("East", "start")
+        mainHall.Add("North", "medicRoom")
+        mainHall.Add("South", "storageRoom")
+        mainHall.Add("West", "X")
+
+        medicRoom.Add("North", "X")
+        medicRoom.Add("East", "X")
+        medicRoom.Add("South", "mainHall")
+        medicRoom.Add("West", "X")
+
+        storageRoom.Add("North", "mainHall")
+        storageRoom.Add("East", "X")
+        storageRoom.Add("South", "X")
+        storageRoom.Add("West", "X")
+
+
+    End Sub
+
+    Private Sub navigation(location As String)
+        Dim message As String = ""
+        Select Case location
+            Case "start"
+                message = "You are in the starting room. There are doors to the north, east, and west."
+
+            Case "library"
+                message = "You are in the Library."
+            Case "breakerRoom"
+                message = "Breaker Room."
+            Case "mainHall"
+                message = "Main Hall"
+            Case "medicRoom"
+                message = "Medic Room."
+            Case "storageRoom"
+                message = "Storage Room."
+        End Select
+    End Sub
+
+
+
+
 
     Private Sub LoadGame()
         Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
@@ -46,6 +106,8 @@ Class MainWindow
         UpdateInventoryDisplay()
         AddToLog("Save loaded. Welcome back, " & player.Name & "!")
     End Sub
+
+
 
     Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs)
         Dim enemy As Enemy = currentRoom.Enemy
@@ -113,7 +175,10 @@ Class MainWindow
         Else
             AddToLog("There is no path to the north.")
         End If
+        navigation("west")
     End Sub
+
+
 
     Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs)
         If currentRoom.NpcName <> "" Then
@@ -122,6 +187,18 @@ Class MainWindow
             lblNpcName.Content = currentRoom.NpcName
             txtNpcDialogue.Text = currentRoom.NpcDialogue
         End If
+    End Sub
+
+    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs) Handles btnSouth.Click
+        navigation("south")
+    End Sub
+
+    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs) Handles btnEast.Click
+        navigation("east")
+    End Sub
+
+    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs) Handles btnWest.Click
+        navigation("west")
     End Sub
 
     Private Sub btnCloseDialogue_Click(sender As Object, e As RoutedEventArgs)

@@ -45,8 +45,7 @@
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"
              Margin="10"/>
             <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
-                     Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 
-                     Text="Room Description" VerticalAlignment="Top" Width="392" Height="28"/>
+                     Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" Height="28"/>
             <!-- Direction buttons -->
             <StackPanel Grid.Row="2" Orientation="Horizontal"
                   HorizontalAlignment="Center" Margin="0,6">
