@@ -66,10 +66,7 @@
                VerticalScrollBarVisibility="Auto"
                Background="#0E0C0A" Foreground="#C9E0A0"
                FontFamily="Consolas" FontSize="12" Margin="10,4,10,10"/>
-             <Canvas Name="GameCanvas" Focusable="True">
-                <!-- The player visual can be added here or via code-behind -->
-                <Rectangle Name="PlayerVisual" Fill="Blue" Width="50" Height="50" />
-            </Canvas>
+         
             <StackPanel x:Name="pnlDialogue" Grid.Row="1" Margin="401,143,33,40"/>
             <StackPanel Grid.Row="3"/>
         </Grid>

@@ -14,10 +14,44 @@ Public Class SaveData
     Public Property Inventory As New List(Of String)
 End Class
 Class MainWindow
+    'Trying to get the room system working
+    Dim start, powerRoom, zombieRoom, emptyRoom As New Dictionary(Of String, String) ' Each room will have a dictionary of exits (e.g. "north" -> "powerRoom")
+    Dim currentRoomName As String ' This will hold the name of the current room (e.g. "startRoom")
 
+
+    'og code
     Dim currentRoom As Room
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
+
+
+
+    Sub New()
+        'required by the designer, do not remove
+        InitializeComponent()
+        ' Initialize the room
+        start.Add("north", "x") 'We are saying properties that belong to the room start. In this case, we are mentioning where it is in relationship to other room
+        start.Add("east", "emptyRoom")
+        start.Add("south", "x")
+        start.Add("west", "x")
+
+        emptyRoom.Add("west", "start")
+        emptyRoom.Add("north", "zombieRoom")
+        emptyRoom.Add("east", "x")
+        emptyRoom.Add("south", "powerRoom")
+
+        zombieRoom.Add("south", "emptyRoom")
+        zombieRoom.Add("west", "x")
+        zombieRoom.Add("east", "x")
+        zombieRoom.Add("north", "x")
+
+        powerRoom.Add("north", "emptyRoom")
+        powerRoom.Add("west", "x")
+        powerRoom.Add("east", "x")
+        powerRoom.Add("south", "x")
+
+        currentRoomName = "start" ' Start in the "start" room
+    End Sub
 
     Private Sub LoadGame()
         Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
