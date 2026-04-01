@@ -39,7 +39,7 @@
             </Grid.RowDefinitions>
 
             <Label x:Name="lblRoomName" Grid.Row="0"
-             Content="Entrance Hall" Foreground="#F0D080"
+             Content="" Foreground="#F0D080"
              FontSize="22" FontWeight="Bold" Margin="10,10,10,0"/>
           
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"

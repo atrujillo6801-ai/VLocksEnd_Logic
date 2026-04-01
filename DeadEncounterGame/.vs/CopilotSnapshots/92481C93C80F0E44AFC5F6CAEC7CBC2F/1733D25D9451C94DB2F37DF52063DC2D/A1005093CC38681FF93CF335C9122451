@@ -21,8 +21,6 @@ Class MainWindow
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
 
-
-
     Sub New()
         InitializeComponent()
 
@@ -65,8 +63,7 @@ Class MainWindow
         storageRoom.Add("South", "X")
         storageRoom.Add("West", "X")
 
-        currentRoom = gameRooms("start") ' Set the starting room
-        UpdateRoomDisplay()
+
 
     End Sub
 
