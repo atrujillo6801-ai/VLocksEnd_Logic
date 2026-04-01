@@ -19,6 +19,41 @@ Class MainWindow
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
 
+    Public Sub New()
+        InitializeComponent()
+
+        ' Create dictionary of rooms
+        gameRooms = New Dictionary(Of String, Room)
+
+        ' Create player
+        player = New Player("Player")
+
+        Dim entrance As New Room()
+        entrance.Name = "Entrance Hall"
+        entrance.Description = "Dust fills the air. The hall is silent."
+
+        Dim northRoom As New Room()
+        northRoom.Name = "Dark Room"
+        northRoom.Description = "The room is cold and almost completely dark."
+
+        entrance.Exits.Add("North", "Dark Room")
+        northRoom.Exits.Add("South", "Entrance Hall")
+
+        gameRooms.Add(entrance.Name, entrance)
+        gameRooms.Add(northRoom.Name, northRoom)
+
+        currentRoom = entrance
+
+        ' Set starting room
+        currentRoom = entrance
+
+        ' Update the screen
+        UpdateRoomDisplay()
+        UpdateHealthBars()
+        UpdateInventoryDisplay()
+        AddToLog("Welcome to the dungeon.")
+    End Sub
+
     Private Sub LoadGame()
         Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
 
@@ -104,15 +139,50 @@ Class MainWindow
         txtCombatLog.ScrollToEnd()
     End Sub
 
-    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs)
-        ' Check if the current room has a "North" exit
+    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs) Handles btnNorth.Click
         If currentRoom.Exits.ContainsKey("North") Then
             Dim nextRoomName As String = currentRoom.Exits("North")
-            currentRoom = gameRooms(nextRoomName)  ' gameRooms is a Dictionary of all rooms, so HOW DO I DECLARE A DICTIONARY?
+            currentRoom = gameRooms(nextRoomName)
             UpdateRoomDisplay()
+            AddToLog("You moved north into " & currentRoom.Name & ".")
         Else
             AddToLog("There is no path to the north.")
         End If
+    End Sub
+    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs)
+        If currentRoom.Exits.ContainsKey("South") Then
+            Dim nextRoomName As String = currentRoom.Exits("South")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved south into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the south.")
+        End If
+    End Sub
+
+    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs)
+        If currentRoom.Exits.ContainsKey("East") Then
+            Dim nextRoomName As String = currentRoom.Exits("East")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved east into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the east.")
+        End If
+    End Sub
+
+    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs)
+        If currentRoom.Exits.ContainsKey("West") Then
+            Dim nextRoomName As String = currentRoom.Exits("West")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved west into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the west.")
+        End If
+    End Sub
+    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs)
+        SaveGame()
     End Sub
 
     Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs)
