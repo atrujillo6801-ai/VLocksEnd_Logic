@@ -2,6 +2,7 @@
 
 Imports Newtonsoft.Json
 Imports System.IO
+Imports Microsoft.VisualBasic
 
 ' Simple class to hold save data (put this OUTSIDE the MainWindow class)
 Public Class SaveData
@@ -14,46 +15,58 @@ Public Class SaveData
     Public Property Inventory As New List(Of String)
 End Class
 Class MainWindow
-    'Trying to get the room system working
-    Dim start, powerRoom, zombieRoom, emptyRoom As New Dictionary(Of String, String) ' Each room will have a dictionary of exits (e.g. "north" -> "powerRoom")
-    Dim currentRoomName As String ' This will hold the name of the current room (e.g. "startRoom")
-
-
-    'og code
+    'Trying to get the room system working; from tutorial
     Dim currentRoom As Room
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
 
 
 
-    Sub New()
-        'required by the designer, do not remove
+    Public Sub New()
         InitializeComponent()
-        ' Initialize the room
-        start.Add("north", "x") 'We are saying properties that belong to the room start. In this case, we are mentioning where it is in relationship to other room
-        start.Add("east", "emptyRoom")
-        start.Add("south", "x")
-        start.Add("west", "x")
 
-        emptyRoom.Add("west", "start")
-        emptyRoom.Add("north", "zombieRoom")
-        emptyRoom.Add("east", "x")
-        emptyRoom.Add("south", "powerRoom")
+        ' Create dictionary of rooms
+        gameRooms = New Dictionary(Of String, Room)
 
-        zombieRoom.Add("south", "emptyRoom")
-        zombieRoom.Add("west", "x")
-        zombieRoom.Add("east", "x")
-        zombieRoom.Add("north", "x")
+        ' Create player
+        player = New Player("Sam Stones")
+        lblPlayerName.Content = player.Name
 
-        powerRoom.Add("north", "emptyRoom")
-        powerRoom.Add("west", "x")
-        powerRoom.Add("east", "x")
-        powerRoom.Add("south", "x")
+        Dim entrance As New Room()
+        entrance.Name = "Entrance Hall"
+        entrance.Description = "Dust fills the air. The hall is silent."
 
-        currentRoomName = "start" ' Start in the "start" room
+        Dim northRoom As New Room()
+        northRoom.Name = "Dark Room"
+        northRoom.Description = "The room is cold and almost completely dark."
+
+        northRoom.Enemy = New Enemy("Shadow Beast", 30, 10)
+
+        entrance.Exits.Add("North", "Dark Room")
+        northRoom.Exits.Add("South", "Entrance Hall")
+
+        gameRooms.Add(entrance.Name, entrance)
+        gameRooms.Add(northRoom.Name, northRoom)
+
+        currentRoom = entrance
+
+        ' Set starting room
+        currentRoom = entrance
+
+        ' Update the screen
+        UpdateRoomDisplay()
+        UpdateHealthBars()
+        UpdateInventoryDisplay()
+        AddToLog("Welcome to the dungeon.")
     End Sub
 
+
+    'NewNavigation code from tutorial
+
+
+
     Private Sub LoadGame()
+
         Dim savePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data\save.json")
 
         If Not File.Exists(savePath) Then
@@ -81,7 +94,7 @@ Class MainWindow
         AddToLog("Save loaded. Welcome back, " & player.Name & "!")
     End Sub
 
-    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs) Handles btnAttack.Click
         Dim enemy As Enemy = currentRoom.Enemy
 
         ' Player attacks first
@@ -108,12 +121,17 @@ Class MainWindow
 
 
     Private Sub HandleEnemyDefeat(enemy As Enemy)
+
         If enemy.LootDrop <> "" Then
             player.PickUpItem(enemy.LootDrop)
             AddToLog("You found: " & enemy.LootDrop)
             UpdateInventoryDisplay() ' needed to be declared
         End If
         btnAttack.Visibility = Visibility.Collapsed
+
+        UpdateRoomDisplay()
+        UpdateHealthBars()
+        AddToLog("The room is now clear.")
     End Sub
 
     ' Update the health bar visuals
@@ -132,24 +150,63 @@ Class MainWindow
 
 
 
+
     ' This runs when player clicks a direction button (e.g. "Go North")
     Private Sub AddToLog(message As String)
         txtCombatLog.AppendText(vbCrLf & message)
         txtCombatLog.ScrollToEnd()
     End Sub
 
-    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs) Handles btnNorth.Click
         ' Check if the current room has a "North" exit
         If currentRoom.Exits.ContainsKey("North") Then
             Dim nextRoomName As String = currentRoom.Exits("North")
             currentRoom = gameRooms(nextRoomName)  ' gameRooms is a Dictionary of all rooms, so HOW DO I DECLARE A DICTIONARY?
             UpdateRoomDisplay()
+            AddToLog("You moved north into " & currentRoom.Name & ".")
         Else
             AddToLog("There is no path to the north.")
         End If
     End Sub
 
-    Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs) Handles btnSouth.Click
+        If currentRoom.Exits.ContainsKey("South") Then
+            Dim nextRoomName As String = currentRoom.Exits("South")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved south into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the south.")
+        End If
+    End Sub
+
+    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs) Handles btnEast.Click
+        If currentRoom.Exits.ContainsKey("East") Then
+            Dim nextRoomName As String = currentRoom.Exits("East")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved east into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the east.")
+        End If
+    End Sub
+
+    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs) Handles btnWest.Click
+        If currentRoom.Exits.ContainsKey("West") Then
+            Dim nextRoomName As String = currentRoom.Exits("West")
+            currentRoom = gameRooms(nextRoomName)
+            UpdateRoomDisplay()
+            AddToLog("You moved west into " & currentRoom.Name & ".")
+        Else
+            AddToLog("There is no path to the west.")
+        End If
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
+        SaveGame()
+    End Sub
+
+    Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs) Handles btnTalkToNpc.Click
         If currentRoom.NpcName <> "" Then
             ' Show the dialogue panel (a Grid or StackPanel named pnlDialogue)
             pnlDialogue.Visibility = Visibility.Visible
@@ -170,7 +227,7 @@ Class MainWindow
     ' Helper: updates all UI elements to show the current room
     Private Sub UpdateRoomDisplay()
         lblRoomName.Content = currentRoom.Name
-        txtRoomDescription.Text = currentRoom.Description 'there is no current text box for RoomDescription
+        txtRoomDescription.Text = currentRoom.Description
 
         ' Show/hide direction buttons based on available exits
         btnNorth.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)

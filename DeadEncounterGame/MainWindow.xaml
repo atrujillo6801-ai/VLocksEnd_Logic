@@ -54,10 +54,10 @@
             <!-- Direction buttons -->
             <StackPanel Grid.Row="2" Orientation="Horizontal"
                   HorizontalAlignment="Center" Margin="0,6">
-                <Button x:Name="btnNorth" Content="▲ North" Width="90" Margin="4"/>
-                <Button x:Name="btnSouth" Content="▼ South" Width="90" Margin="4"/>
-                <Button x:Name="btnEast"  Content="▶ East"  Width="90" Margin="4"/>
-                <Button x:Name="btnWest"  Content="◀ West"  Width="90" Margin="4"/>
+                <Button x:Name="btnNorth" Content="▲ North" Width="90" Margin="4" Click="btnNorth_Click"/>
+                <Button x:Name="btnSouth" Content="▼ South" Width="90" Margin="4" Click="btnSouth_Click"/>
+                <Button x:Name="btnEast"  Content="▶ East"  Width="90" Margin="4" Click="btnEast_Click"/>
+                <Button x:Name="btnWest"  Content="◀ West"  Width="90" Margin="4" Click="btnWest_Click"/>
             </StackPanel>
 
             <!-- Combat log -->
@@ -79,10 +79,10 @@
             <ProgressBar x:Name="pbarEnemyHealth" Height="14"
                    Foreground="#8B0000" Margin="10,0"/>
             <Button x:Name="btnAttack" Content="⚔ Attack"
-              Visibility="Collapsed" Margin="10,8"/>
+              Visibility="Collapsed" Margin="10,8" Click="btnAttack_Click"/>
             <Button x:Name="btnTalkToNpc" Content="💬 Talk"
-              Visibility="Collapsed" Margin="10,4"/>
-            <Button x:Name="btnSave" Content="💾 Save Game" Margin="10,4"/>
+              Visibility="Collapsed" Margin="10,4" Click="btnTalkToNpc_Click"/>
+            <Button x:Name="btnSave" Content="💾 Save Game" Margin="10,4" Click="btnSave_Click"/>
             <Label x:Name="lblNpcName" Content="NPC Name"/>
             <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
         </StackPanel>
