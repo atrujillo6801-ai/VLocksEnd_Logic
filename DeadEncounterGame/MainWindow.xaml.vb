@@ -27,13 +27,7 @@ Class MainWindow
         gameRooms = New Dictionary(Of String, Room)
 
         ' Create player
-        Dim playerName As String = InputBox("Enter your name:", "Player Name")
-
-        If playerName = "" Then
-            playerName = "Player"
-        End If
-
-        player = New Player(playerName)
+        player = New Player("Sam Stones")
         lblPlayerName.Content = player.Name
 
         Dim entrance As New Room()
@@ -43,6 +37,8 @@ Class MainWindow
         Dim northRoom As New Room()
         northRoom.Name = "Dark Room"
         northRoom.Description = "The room is cold and almost completely dark."
+
+        northRoom.Enemy = New Enemy("Shadow Beast", 30, 10)
 
         entrance.Exits.Add("North", "Dark Room")
         northRoom.Exits.Add("South", "Entrance Hall")
@@ -90,7 +86,7 @@ Class MainWindow
         AddToLog("Save loaded. Welcome back, " & player.Name & "!")
     End Sub
 
-    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs) Handles btnAttack.Click
         Dim enemy As Enemy = currentRoom.Enemy
 
         ' Player attacks first
@@ -111,7 +107,7 @@ Class MainWindow
 
         If Not player.IsAlive() Then
             AddToLog("You have been defeated... Game Over.")
-            ShowGameOver() ' needed to be declared
+            ShowGameOver()
         End If
     End Sub
 
@@ -122,7 +118,10 @@ Class MainWindow
             AddToLog("You found: " & enemy.LootDrop)
             UpdateInventoryDisplay() ' needed to be declared
         End If
-        btnAttack.Visibility = Visibility.Collapsed
+
+        UpdateRoomDisplay()
+        UpdateHealthBars()
+        AddToLog("The room is now clear.")
     End Sub
 
     ' Update the health bar visuals
@@ -157,7 +156,7 @@ Class MainWindow
             AddToLog("There is no path to the north.")
         End If
     End Sub
-    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs) Handles btnSouth.Click
         If currentRoom.Exits.ContainsKey("South") Then
             Dim nextRoomName As String = currentRoom.Exits("South")
             currentRoom = gameRooms(nextRoomName)
@@ -168,7 +167,7 @@ Class MainWindow
         End If
     End Sub
 
-    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs) Handles btnEast.Click
         If currentRoom.Exits.ContainsKey("East") Then
             Dim nextRoomName As String = currentRoom.Exits("East")
             currentRoom = gameRooms(nextRoomName)
@@ -179,7 +178,7 @@ Class MainWindow
         End If
     End Sub
 
-    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs) Handles btnWest.Click
         If currentRoom.Exits.ContainsKey("West") Then
             Dim nextRoomName As String = currentRoom.Exits("West")
             currentRoom = gameRooms(nextRoomName)
@@ -189,11 +188,11 @@ Class MainWindow
             AddToLog("There is no path to the west.")
         End If
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnSave_Click(sender As Object, e As RoutedEventArgs) Handles btnSave.Click
         SaveGame()
     End Sub
 
-    Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnTalkToNpc_Click(sender As Object, e As RoutedEventArgs) Handles btnTalkToNpc.Click
         If currentRoom.NpcName <> "" Then
             ' Show the dialogue panel (a Grid or StackPanel named pnlDialogue)
             pnlDialogue.Visibility = Visibility.Visible
