@@ -2,6 +2,7 @@
 
 Imports Newtonsoft.Json
 Imports System.IO
+Imports Microsoft.VisualBasic
 
 ' Simple class to hold save data (put this OUTSIDE the MainWindow class)
 Public Class SaveData
@@ -26,7 +27,14 @@ Class MainWindow
         gameRooms = New Dictionary(Of String, Room)
 
         ' Create player
-        player = New Player("Player")
+        Dim playerName As String = InputBox("Enter your name:", "Player Name")
+
+        If playerName = "" Then
+            playerName = "Player"
+        End If
+
+        player = New Player(playerName)
+        lblPlayerName.Content = player.Name
 
         Dim entrance As New Room()
         entrance.Name = "Entrance Hall"
