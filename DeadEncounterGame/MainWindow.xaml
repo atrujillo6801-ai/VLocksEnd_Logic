@@ -49,10 +49,11 @@
             <!-- Direction buttons -->
             <StackPanel Grid.Row="2" Orientation="Horizontal"
                   HorizontalAlignment="Center" Margin="0,6">
-                <Button x:Name="btnNorth" Content="▲ North" Width="90" Margin="4"/>
-                <Button x:Name="btnSouth" Content="▼ South" Width="90" Margin="4"/>
-                <Button x:Name="btnEast"  Content="▶ East"  Width="90" Margin="4"/>
-                <Button x:Name="btnWest"  Content="◀ West"  Width="90" Margin="4"/>
+              
+                <Button x:Name="btnNorth" Content="▲ North" Width="90" Margin="4" Click="btnNorth_Click"/>
+                <Button x:Name="btnSouth" Content="▼ South" Width="90" Margin="4" Click="btnSouth_Click"/>
+                <Button x:Name="btnEast"  Content="▶ East"  Width="90" Margin="4" Click="btnEast_Click"/>
+                <Button x:Name="btnWest"  Content="◀ West"  Width="90" Margin="4" Click="btnWest_Click"/>
             </StackPanel>
 
             <!-- Combat log -->

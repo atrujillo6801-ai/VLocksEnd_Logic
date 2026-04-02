@@ -1,4 +1,6 @@
-﻿Imports Newtonsoft.Json
+﻿' Add to the top of MainWindow.vb
+
+Imports Newtonsoft.Json
 Imports System.IO
 
 ' Simple class to hold save data (put this OUTSIDE the MainWindow class)
@@ -63,22 +65,8 @@ Class MainWindow
         storageRoom.Add("South", "X")
         storageRoom.Add("West", "X")
 
-        ' Create Room instances and add them to gameRooms
-        Dim roomStart As New Room With {.Name = "start", .Description = "Starting room", .Exits = start}
-        Dim roomLibrary As New Room With {.Name = "library", .Description = "Library", .Exits = library}
-        Dim roomBreaker As New Room With {.Name = "breakerRoom", .Description = "Breaker Room", .Exits = breakerRoom}
-        Dim roomMainHall As New Room With {.Name = "mainHall", .Description = "Main Hall", .Exits = mainHall}
-        Dim roomMedic As New Room With {.Name = "medicRoom", .Description = "Medic Room", .Exits = medicRoom}
-        Dim roomStorage As New Room With {.Name = "storageRoom", .Description = "Storage Room", .Exits = storageRoom}
-
-        gameRooms.Add("start", roomStart)
-        gameRooms.Add("library", roomLibrary)
-        gameRooms.Add("breakerRoom", roomBreaker)
-        gameRooms.Add("mainHall", roomMainHall)
-        gameRooms.Add("medicRoom", roomMedic)
-        gameRooms.Add("storageRoom", roomStorage)
-
-
+        currentRoom = gameRooms("start") ' Set the starting room
+        UpdateRoomDisplay()
 
     End Sub
 
