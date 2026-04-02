@@ -13,6 +13,7 @@ Public Class Player
     Public Property Gold As Integer
 
     ' Constructor — runs when a new Player is created
+    'This gives us the formula when creating a new player; in the parenthises we place a string the will become the player's name, and the rest of the properties are set to default values.
     Public Sub New(playerName As String)
         Name = playerName
         Health = 100

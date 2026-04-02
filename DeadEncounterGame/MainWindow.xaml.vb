@@ -15,10 +15,10 @@ Public Class SaveData
     Public Property Inventory As New List(Of String)
 End Class
 Class MainWindow
-    'Trying to get the room system working; from tutorial
-    Dim currentRoom As Room
-    Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
-    Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
+
+    Dim currentRoom As Room 'we are declaring that whenever we see the container named currentRoom, it is holding something that was created from the blueprint class of Room.Notice that this is not creating something new, it's just telling the code what to read whatever is in the container "current room"
+    Dim gameRooms As Dictionary(Of String, Room) ' We state that whenever we want to access a room, we will look it up in this dictionary by name. This allows us to easily manage multiple rooms and their connections.
+    Dim player As Player ' Needed to be declared so that subroutines know what to read it as. In this case the container labeled "player" is holding something created from the blueprint class of Player. Notice that this is not a creation just a clarification of HOW to read that data as.
 
 
 
@@ -32,23 +32,43 @@ Class MainWindow
         player = New Player("Sam Stones")
         lblPlayerName.Content = player.Name
 
+        'we are declaring that a room will be created from the blueprint class of room, and we will call it "entrance". 
+        'We will then set the properties of this room (name, description, etc.from the blueprint properties) to create a unique location in our game world.]
         Dim entrance As New Room()
-        entrance.Name = "Entrance Hall"
+        entrance.Name = "West Entrance Hall"
         entrance.Description = "Dust fills the air. The hall is silent."
+        entrance.Exits.Add("East", "East Dark Room")
+
+        Dim eastRoom As New Room()
+        eastRoom.Name = "East Dark Room"
+        eastRoom.Description = "If only there was some kind of light switch."
+        eastRoom.Exits.Add("West", "West Entrance Hall")
+        eastRoom.Exits.Add("North", "North Zombie Room")
+        eastRoom.Exits.Add("South", "South Key Room")
 
         Dim northRoom As New Room()
-        northRoom.Name = "Dark Room"
-        northRoom.Description = "The room is cold and almost completely dark."
+        northRoom.Name = "North Zombie Room"
+        northRoom.Description = "What is that movement in the shadows?"
+        northRoom.Exits.Add("South", "East Dark Room")
 
-        northRoom.Enemy = New Enemy("Shadow Beast", 30, 10)
 
-        entrance.Exits.Add("North", "Dark Room")
-        northRoom.Exits.Add("South", "Entrance Hall")
 
+        Dim southRoom As New Room()
+        southRoom.Name = "South Key Room"
+        southRoom.Description = "A glint catches your eye from the corner of the room."
+        southRoom.Exits.Add("North", "East Dark Room")
+
+        northRoom.Enemy = New Enemy("Zombie", 30, 10)
+
+
+
+        'this adds the rooms we created to the dictionary of rooms, using the string of the room's name as the key. This allows us to easily look up any room by its name later on (like when we want to move to a new room).
         gameRooms.Add(entrance.Name, entrance)
         gameRooms.Add(northRoom.Name, northRoom)
+        gameRooms.Add(eastRoom.Name, eastRoom)
+        gameRooms.Add(southRoom.Name, southRoom)
 
-        currentRoom = entrance
+
 
         ' Set starting room
         currentRoom = entrance
@@ -158,7 +178,7 @@ Class MainWindow
     End Sub
 
     Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs) Handles btnNorth.Click
-        ' Check if the current room has a "North" exit
+        ' Check if the current room has a "North" exit; notice it has to specifically contain it as a string!
         If currentRoom.Exits.ContainsKey("North") Then
             Dim nextRoomName As String = currentRoom.Exits("North")
             currentRoom = gameRooms(nextRoomName)  ' gameRooms is a Dictionary of all rooms, so HOW DO I DECLARE A DICTIONARY?

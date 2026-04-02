@@ -1,6 +1,7 @@
 ﻿' File: Models/Enemy.vb
 
 Public Class Enemy
+    'These are properties that can be declared when creating an instance of the Enemy class in the main window.
     Public Property Name As String
     Public Property Health As Integer
     Public Property MaxHealth As Integer
@@ -8,6 +9,8 @@ Public Class Enemy
     Public Property Description As String
     Public Property LootDrop As String
 
+
+    'this is the constructor for the Enemy class, which initializes the properties when a new Enemy object is created.
     Public Sub New(eName As String, hp As Integer, atk As Integer)
         Name = eName
         Health = hp

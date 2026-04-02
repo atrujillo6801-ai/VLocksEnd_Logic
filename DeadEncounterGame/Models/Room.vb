@@ -1,5 +1,5 @@
 ﻿' File: Models/Room.vb
-
+'this blueprint details the properties that can be declared when creating an instance of the Room class in the main window.
 Public Class Room
     Public Property Name As String
     Public Property Description As String
