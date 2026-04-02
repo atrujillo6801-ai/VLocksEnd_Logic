@@ -192,7 +192,7 @@ Class MainWindow
         txtCombatLog.ScrollToEnd()
     End Sub
 
-    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnNorth_Click(sender As Object, e As RoutedEventArgs) Handles btnNorth.Click
         ' Check if the current room has a "North" exit
         If currentRoom.Exits.ContainsKey("North") Then
             Dim nextRoomName As String = currentRoom.Exits("North")
@@ -204,15 +204,15 @@ Class MainWindow
         navigation("west")
     End Sub
 
-    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnSouth_Click(sender As Object, e As RoutedEventArgs) Handles btnSouth.Click
         navigation("south")
     End Sub
 
-    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnEast_Click(sender As Object, e As RoutedEventArgs) Handles btnEast.Click
         navigation("east")
     End Sub
 
-    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnWest_Click(sender As Object, e As RoutedEventArgs) Handles btnWest.Click
         navigation("west")
     End Sub
 
