@@ -44,6 +44,30 @@
           
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"
              Margin="10"/>
+
+       <!-- Player: Room view -->
+            <Image x:Name="imgPlayer"
+       Grid.Row="1"
+       Width="120"
+       Height="160"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Bottom"
+       Margin="40,0,0,40"
+       Source="/Images/Player.png"
+       Panel.ZIndex="2"/>
+
+     <!-- Zombie: Room view -->
+       <Image x:Name="imgEnemy"
+       Grid.Row="1"
+       Width="120"
+       Height="160"
+       HorizontalAlignment="Right"
+       VerticalAlignment="Bottom"
+       Margin="0,0,40,40"
+       Source="Images/Zombie.png"
+       Visibility="Collapsed"
+       Panel.ZIndex="2"/>
+
             <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
                      Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 
                      Text="Room Description" VerticalAlignment="Top" Width="392" Height="28"/>

@@ -38,7 +38,7 @@ Class MainWindow
         northRoom.Name = "Dark Room"
         northRoom.Description = "The room is cold and almost completely dark."
 
-        northRoom.Enemy = New Enemy("Shadow Beast", 30, 10)
+        northRoom.Enemy = New Enemy("Zombie", 30, 10)
 
         entrance.Exits.Add("North", "Dark Room")
         northRoom.Exits.Add("South", "Entrance Hall")
@@ -215,17 +215,33 @@ Class MainWindow
         lblRoomName.Content = currentRoom.Name
         txtRoomDescription.Text = currentRoom.Description 'there is no current text box for RoomDescription
 
-        ' Show/hide direction buttons based on available exits
+        ' Hides buttons for directions that don't exist in the current room
         btnNorth.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)
         btnSouth.Visibility = If(currentRoom.Exits.ContainsKey("South"), Visibility.Visible, Visibility.Collapsed)
         btnEast.Visibility = If(currentRoom.Exits.ContainsKey("East"), Visibility.Visible, Visibility.Collapsed)
         btnWest.Visibility = If(currentRoom.Exits.ContainsKey("West"), Visibility.Visible, Visibility.Collapsed)
 
-        ' Show enemy/NPC/item status
+        ' Enemy stuff
         If currentRoom.Enemy IsNot Nothing AndAlso currentRoom.Enemy.IsAlive() Then
-            lblEnemyStatus.Content = "Enemy present: " & currentRoom.Enemy.Name
+            lblEnemyStatus.Content = "Enemy: " & currentRoom.Enemy.Name
             btnAttack.Visibility = Visibility.Visible
+            imgEnemy.Visibility = Visibility.Visible
+            'placing player and enemy in combat 
+            imgPlayer.HorizontalAlignment = HorizontalAlignment.Left
+            imgPlayer.Margin = New Thickness(40, 0, 0, 40)
+
+            imgEnemy.HorizontalAlignment = HorizontalAlignment.Right
+            imgEnemy.Margin = New Thickness(0, 0, 40, 40)
         Else
+            lblEnemyStatus.Content = "Room is clear."
+            btnAttack.Visibility = Visibility.Collapsed
+            imgEnemy.Visibility = Visibility.Collapsed
+
+            imgPlayer.HorizontalAlignment = HorizontalAlignment.Center
+            imgPlayer.Margin = New Thickness(0, 0, 0, 40)
+
+
+
             lblEnemyStatus.Content = "Room is clear."
             btnAttack.Visibility = Visibility.Collapsed
         End If
