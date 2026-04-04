@@ -41,11 +41,11 @@
             <Label x:Name="lblRoomName" Grid.Row="0"
              Content="Entrance Hall" Foreground="#F0D080"
              FontSize="22" FontWeight="Bold" Margin="10,10,10,0"/>
-          
+
             <Image x:Name="imgRoom" Grid.Row="1" Stretch="UniformToFill"
              Margin="10"/>
 
-       <!-- Player: Room view -->
+            <!-- Player: Room view -->
             <Image x:Name="imgPlayer"
        Grid.Row="1"
        Width="120"
@@ -56,8 +56,8 @@
        Source="/Images/Player.png"
        Panel.ZIndex="2"/>
 
-     <!-- Zombie: Room view -->
-       <Image x:Name="imgEnemy"
+            <!-- Zombie: Room view -->
+            <Image x:Name="imgEnemy"
        Grid.Row="1"
        Width="120"
        Height="160"
@@ -86,7 +86,7 @@
                VerticalScrollBarVisibility="Auto"
                Background="#0E0C0A" Foreground="#C9E0A0"
                FontFamily="Consolas" FontSize="12" Margin="10,4,10,10"/>
-           
+
             <StackPanel x:Name="pnlDialogue" Grid.Row="1" Margin="401,143,33,40"/>
             <StackPanel Grid.Row="3"/>
         </Grid>

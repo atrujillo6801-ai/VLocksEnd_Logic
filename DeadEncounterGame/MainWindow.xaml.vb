@@ -232,10 +232,8 @@ Class MainWindow
 
         ' Change background based on lights
         If lightsOn Then
-            imgRoom.Source = Nothing
             imgRoom.Source = New BitmapImage(New Uri("pack://application:,,,/Images/BreakerOn.png"))
         Else
-            imgRoom.Source = Nothing
             imgRoom.Source = New BitmapImage(New Uri("pack://application:,,,/Images/BreakerOff.png"))
         End If
 

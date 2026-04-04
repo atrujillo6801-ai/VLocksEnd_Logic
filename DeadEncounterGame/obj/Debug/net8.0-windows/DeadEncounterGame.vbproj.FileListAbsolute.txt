@@ -23,3 +23,28 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.pdb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.genruntimeconfig.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\ref\DeadEncounterGame.dll
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\Data\save.json
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.exe
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.deps.json
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.runtimeconfig.json
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.dll
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.pdb
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.vbproj.AssemblyReference.cache
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\MainWindow.g.vb
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\Application.g.vb
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.cache
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.lref
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.g.resources
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.AssemblyInfoInputs.cache
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.AssemblyInfo.vb
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.vbproj.CoreCompileInputs.cache
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.sourcelink.json
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEnco.26A80E55.Up2Date
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.dll
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\refint\DeadEncounterGame.dll
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.pdb
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.genruntimeconfig.cache
+C:\Users\jrosa\source\repos\VLocksEnd_Logic\THE DEADPOWER GAME (correct)\DeadEncounterGame\obj\Debug\net8.0-windows\ref\DeadEncounterGame.dll
