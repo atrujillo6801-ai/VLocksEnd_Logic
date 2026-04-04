@@ -79,8 +79,8 @@
             <Button x:Name="btnTalkToNpc" Content="💬 Talk"
               Visibility="Collapsed" Margin="10,4"/>
             <Button x:Name="btnSave" Content="💾 Save Game" Margin="10,4"/>
-            <Label x:Name="lblNpcName" Content="NPC Name"/>
-            <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
+            <Label x:Name="lblNpcName" Content="NPC Dialogue"/>
+            <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Width="120" Height="78"/>
         </StackPanel>
 
     </Grid>

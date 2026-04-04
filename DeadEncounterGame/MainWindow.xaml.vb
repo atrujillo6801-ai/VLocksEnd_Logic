@@ -251,6 +251,7 @@ Class MainWindow
         If currentRoom.Enemy IsNot Nothing AndAlso currentRoom.Enemy.IsAlive() Then
             lblEnemyStatus.Content = "Enemy present: " & currentRoom.Enemy.Name
             btnAttack.Visibility = Visibility.Visible
+            txtNpcDialogue.Text = "RAHHHH" ' Clear any NPC dialogue if an enemy is present
         Else
             lblEnemyStatus.Content = "Room is clear."
             btnAttack.Visibility = Visibility.Collapsed
