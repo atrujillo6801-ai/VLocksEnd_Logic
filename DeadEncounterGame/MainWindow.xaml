@@ -107,5 +107,7 @@
             <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
         </StackPanel>
 
+        <!-- Left Panel: Temperary light switch -->
+        <Button x:Name="btnLightSwitch" Content="Toggle Lights" Margin="10"/>
     </Grid>
 </Window>

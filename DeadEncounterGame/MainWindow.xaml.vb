@@ -19,6 +19,7 @@ Class MainWindow
     Dim currentRoom As Room
     Dim gameRooms As Dictionary(Of String, Room) ' Declare a dictionary to hold all rooms
     Dim player As Player ' Needed to be declared here so it can be accessed by all subroutines
+    Dim lightsOn As Boolean = False
 
     Public Sub New()
         InitializeComponent()
@@ -211,9 +212,32 @@ Class MainWindow
     End Sub
 
     ' Helper: updates all UI elements to show the current room
+
+    Private Sub btnLightSwitch_Click(sender As Object, e As RoutedEventArgs) Handles btnLightSwitch.Click
+        lightsOn = Not lightsOn
+
+        If lightsOn Then
+            AddToLog("Lights turned ON")
+        Else
+            AddToLog("Lights turned OFF")
+        End If
+
+        UpdateRoomDisplay()
+    End Sub
+
+
     Private Sub UpdateRoomDisplay()
         lblRoomName.Content = currentRoom.Name
-        txtRoomDescription.Text = currentRoom.Description 'there is no current text box for RoomDescription
+        txtRoomDescription.Text = currentRoom.Description
+
+        ' Change background based on lights
+        If lightsOn Then
+            imgRoom.Source = Nothing
+            imgRoom.Source = New BitmapImage(New Uri("pack://application:,,,/Images/BreakerOn.png"))
+        Else
+            imgRoom.Source = Nothing
+            imgRoom.Source = New BitmapImage(New Uri("pack://application:,,,/Images/BreakerOff.png"))
+        End If
 
         ' Hides buttons for directions that don't exist in the current room
         btnNorth.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)
