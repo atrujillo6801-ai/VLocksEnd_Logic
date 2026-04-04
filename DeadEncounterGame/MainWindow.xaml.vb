@@ -115,7 +115,7 @@ Class MainWindow
 
 
 
-    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs)
+    Private Sub btnAttack_Click(sender As Object, e As RoutedEventArgs) Handles btnAttack.Click
         Dim enemy As Enemy = currentRoom.Enemy
 
         ' Player attacks first
@@ -126,6 +126,7 @@ Class MainWindow
         If Not enemy.IsAlive() Then
             AddToLog(enemy.Name & " has been defeated!")
             HandleEnemyDefeat(enemy)
+            txtNpcDialogue.Text = "bleh"
             Return
         End If
 
