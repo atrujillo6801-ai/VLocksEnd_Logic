@@ -126,6 +126,7 @@ Class MainWindow
         If Not enemy.IsAlive() Then
             AddToLog(enemy.Name & " has been defeated!")
             HandleEnemyDefeat(enemy)
+            txtNpcDialogue.Text = "bleh"
             Return
         End If
 
@@ -287,7 +288,7 @@ Class MainWindow
             lblEnemyStatus.Content = "Enemy present: " & currentRoom.Enemy.Name
             btnAttack.Visibility = Visibility.Visible
             imgEnemy.Visibility = Visibility.Visible
-
+            txtNpcDialogue.Text = "No Escape! RAHHHHH!"
             'placing player and enemy in combat 
             imgPlayer.HorizontalAlignment = HorizontalAlignment.Left
             imgPlayer.Margin = New Thickness(40, 0, 0, 40)

@@ -52,7 +52,7 @@
        HorizontalAlignment="Left"
        VerticalAlignment="Bottom"
        Margin="40,0,0,40"
-       Source="/Assets/images/Player.png"
+       Source="C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\Player.png"
        Panel.ZIndex="2"/>
 
             <!-- Zombie: Room view -->
@@ -63,7 +63,7 @@
        HorizontalAlignment="Right"
        VerticalAlignment="Bottom"
        Margin="0,0,40,40"
-       Source="/Assets/images/Zombie.png"
+       Source="C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\Zombie.png"
        Visibility="Collapsed"
        Panel.ZIndex="2"/>
             
