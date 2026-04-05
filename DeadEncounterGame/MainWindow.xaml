@@ -48,6 +48,29 @@
                     <local:Room/>
                 </Image.DataContext>
             </Image>
+            <!-- Player: Room view -->
+            <Image x:Name="imgPlayer"
+       Grid.Row="1"
+       Width="120"
+       Height="160"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Bottom"
+       Margin="40,0,0,40"
+       Source="/Assets/images/Player.png"
+       Panel.ZIndex="2"/>
+
+            <!-- Zombie: Room view -->
+            <Image x:Name="imgEnemy"
+       Grid.Row="1"
+       Width="120"
+       Height="160"
+       HorizontalAlignment="Right"
+       VerticalAlignment="Bottom"
+       Margin="0,0,40,40"
+       Source="/Assets/images/Zombie.png"
+       Visibility="Collapsed"
+       Panel.ZIndex="2"/>
+            
             <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
                      Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 
                      Text="Room Description" VerticalAlignment="Top" Width="392" Height="28"/>
@@ -86,6 +109,9 @@
             <Label x:Name="lblNpcName" Content="NPC Name"/>
             <TextBox x:Name="txtNpcDialogue" TextWrapping="Wrap" Text="NPC Dialogue" Width="120" Height="78"/>
         </StackPanel>
+       
+        <!-- Left Panel: Temperary light switch -->
+        <Button x:Name="btnLightSwitch" Content="Toggle Lights" Margin="10,342,20,251"/>
         <Canvas Grid.Column="2"/>
 
     </Grid>
