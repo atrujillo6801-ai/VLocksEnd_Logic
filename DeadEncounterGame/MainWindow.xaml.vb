@@ -19,6 +19,7 @@ Class MainWindow
     Dim currentRoom As Room 'we are declaring that whenever we see the container named currentRoom, it is holding something that was created from the blueprint class of Room.Notice that this is not creating something new, it's just telling the code what to read whatever is in the container "current room"
     Dim gameRooms As Dictionary(Of String, Room) ' We state that whenever we want to access a room, we will look it up in this dictionary by name. This allows us to easily manage multiple rooms and their connections.
     Dim player As Player ' Needed to be declared so that subroutines know what to read it as. In this case the container labeled "player" is holding something created from the blueprint class of Player. Notice that this is not a creation just a clarification of HOW to read that data as.
+    Dim lightsOn As Boolean = False
 
 
 
@@ -58,7 +59,7 @@ Class MainWindow
         southRoom.Description = "A glint catches your eye from the corner of the room."
         southRoom.Exits.Add("North", "East Dark Room")
 
-        northRoom.Enemy = New Enemy("Zombie", 30, 10)
+        northRoom.Enemy = New Enemy("Zombie", 90, 10)
 
 
 
@@ -244,10 +245,36 @@ Class MainWindow
         Application.Current.Shutdown()
     End Sub
 
+
+    Private Sub btnLightSwitch_Click(sender As Object, e As RoutedEventArgs) Handles btnLightSwitch.Click
+        lightsOn = Not lightsOn
+
+        If lightsOn Then
+            AddToLog("Lights turned ON")
+        Else
+            AddToLog("Lights turned OFF")
+        End If
+
+        UpdateRoomDisplay()
+    End Sub
+
+
+
+
+
     ' Helper: updates all UI elements to show the current room
     Private Sub UpdateRoomDisplay()
         lblRoomName.Content = currentRoom.Name
         txtRoomDescription.Text = currentRoom.Description
+
+        ' Change background based on lights
+        If lightsOn Then
+            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\BreakerOn.png"))
+        Else
+            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\BreakerOff.png"))
+        End If
+
+
 
         ' Show/hide direction buttons based on available exits
         btnNorth.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)
@@ -259,7 +286,23 @@ Class MainWindow
         If currentRoom.Enemy IsNot Nothing AndAlso currentRoom.Enemy.IsAlive() Then
             lblEnemyStatus.Content = "Enemy present: " & currentRoom.Enemy.Name
             btnAttack.Visibility = Visibility.Visible
+            imgEnemy.Visibility = Visibility.Visible
+
+            'placing player and enemy in combat 
+            imgPlayer.HorizontalAlignment = HorizontalAlignment.Left
+            imgPlayer.Margin = New Thickness(40, 0, 0, 40)
+
+            imgEnemy.HorizontalAlignment = HorizontalAlignment.Right
+            imgEnemy.Margin = New Thickness(0, 0, 40, 40)
         Else
+            lblEnemyStatus.Content = "Room is clear."
+            btnAttack.Visibility = Visibility.Collapsed
+            imgEnemy.Visibility = Visibility.Collapsed
+
+            imgPlayer.HorizontalAlignment = HorizontalAlignment.Center
+            imgPlayer.Margin = New Thickness(0, 0, 0, 40)
+
+
             lblEnemyStatus.Content = "Room is clear."
             btnAttack.Visibility = Visibility.Collapsed
         End If
