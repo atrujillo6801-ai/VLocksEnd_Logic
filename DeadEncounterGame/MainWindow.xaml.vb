@@ -82,9 +82,41 @@ Class MainWindow
     End Sub
 
 
-    'NewNavigation code from tutorial
+    'Character Motion with arrow keys
+    Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs) Handles DeadEncounterGame.KeyDown
+
+        If e.Key = Key.Right Then
+
+            MoveRight()
+
+        End If
 
 
+
+        If e.Key = Key.Left Then
+
+            MoveLeft()
+
+        End If
+
+
+
+
+
+    End Sub
+
+
+    Private Sub MoveLeft()
+
+        imgPlayer.Margin = New Thickness(imgPlayer.Margin.Left - 2, imgPlayer.Margin.Top, 0, 0)
+
+    End Sub
+
+    Private Sub MoveRight()
+
+        imgPlayer.Margin = New Thickness(imgPlayer.Margin.Left + 2, imgPlayer.Margin.Top, 0, 0)
+
+    End Sub
 
     Private Sub LoadGame()
 
