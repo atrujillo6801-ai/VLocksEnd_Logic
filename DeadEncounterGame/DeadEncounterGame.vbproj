@@ -40,6 +40,15 @@
     <None Update="Assets\images\Zombie.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\images\[2] Big Zombie %28Anthony%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\images\[2] Main Game Screen %282%29 %28Anthony%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\images\[2] Main Game Screen %282%29 %28Anthony%29_PowerOff.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\images\[3] COMBATSCREEN %28andy%29.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

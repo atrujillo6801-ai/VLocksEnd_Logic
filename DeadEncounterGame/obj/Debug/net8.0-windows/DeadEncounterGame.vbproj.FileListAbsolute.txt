@@ -28,3 +28,6 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.pdb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.genruntimeconfig.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\ref\DeadEncounterGame.dll
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony).png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Big Zombie (Anthony).png

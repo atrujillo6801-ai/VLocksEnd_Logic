@@ -21,12 +21,15 @@ Class MainWindow
         Up = 2
         Down = 3
     End Enum
+
     Dim currentRoom As Room 'we are declaring that whenever we see the container named currentRoom, it is holding something that was created from the blueprint class of Room.Notice that this is not creating something new, it's just telling the code what to read whatever is in the container "current room"
     Dim gameRooms As Dictionary(Of String, Room) ' We state that whenever we want to access a room, we will look it up in this dictionary by name. This allows us to easily manage multiple rooms and their connections.
     Dim player As Player ' Needed to be declared so that subroutines know what to read it as. In this case the container labeled "player" is holding something created from the blueprint class of Player. Notice that this is not a creation just a clarification of HOW to read that data as.
     Dim lightsOn As Boolean = False
     Dim leftKey As Boolean
-    Dim RightKey As Boolean
+    Dim rightKey As Boolean
+    Dim upKey As Boolean
+    Dim downKey As Boolean
 
     Public Sub New()
         InitializeComponent()
@@ -42,19 +45,20 @@ Class MainWindow
         'We will then set the properties of this room (name, description, etc.from the blueprint properties) to create a unique location in our game world.]
         Dim entrance As New Room()
         entrance.Name = "West Entrance Hall"
-        entrance.Description = "Dust fills the air. The hall is silent."
+        entrance.Description = "Looks like a deserted building. I wonder if I can find a radio inside? (Use your keyboard keys to explore rooms)."
         entrance.Exits.Add("East", "East Dark Room")
 
         Dim eastRoom As New Room()
         eastRoom.Name = "East Dark Room"
-        eastRoom.Description = "If only there was some kind of light switch."
+        eastRoom.Description = "Looks like the power is down. Maybe there is a breaker or an auxilary generator somewhere."
         eastRoom.Exits.Add("West", "West Entrance Hall")
         eastRoom.Exits.Add("North", "North Zombie Room")
         eastRoom.Exits.Add("South", "South Key Room")
+        
 
         Dim northRoom As New Room()
         northRoom.Name = "North Zombie Room"
-        northRoom.Description = "What is that movement in the shadows?"
+        northRoom.Description = "You find an unexpected guest."
         northRoom.Exits.Add("South", "East Dark Room")
 
 
@@ -64,7 +68,7 @@ Class MainWindow
         southRoom.Description = "A glint catches your eye from the corner of the room."
         southRoom.Exits.Add("North", "East Dark Room")
 
-        northRoom.Enemy = New Enemy("Zombie", 90, 10)
+        northRoom.Enemy = New Enemy("Zombie", 100, 10)
 
 
 
@@ -95,8 +99,9 @@ Class MainWindow
     Private Sub GameLoop()
 
         If leftKey Then CheckKeyToMove(MoveKey.Left)
-        If RightKey Then CheckKeyToMove(MoveKey.Right)
-
+        If rightKey Then CheckKeyToMove(MoveKey.Right)
+        If upKey Then CheckKeyToMove(MoveKey.Up)
+        If downKey Then CheckKeyToMove(MoveKey.Down)
 
 
 
@@ -108,6 +113,10 @@ Class MainWindow
                 MoveLeft()
             Case isKeyMove.Right
                 MoveRight()
+            Case isKeyMove.Up
+                MoveUp()
+            Case isKeyMove.Down
+                MoveDown()
             Case Else
 
 
@@ -119,7 +128,7 @@ Class MainWindow
 
         If e.Key = Key.Right Then
 
-            RightKey = True
+            rightKey = True
 
         End If
 
@@ -129,6 +138,14 @@ Class MainWindow
 
             leftKey = True
 
+        End If
+
+        If e.Key = Key.Up Then
+            upKey = True
+        End If
+
+        If e.Key = Key.Down Then
+            downKey = True
         End If
 
 
@@ -153,6 +170,14 @@ Class MainWindow
 
         End If
 
+        If e.Key = Key.Up Then
+            upKey = False
+        End If
+
+        If e.Key = Key.Down Then
+            downKey = False
+        End If
+
 
 
 
@@ -169,6 +194,19 @@ Class MainWindow
     Private Sub MoveRight()
 
         imgPlayer.Margin = New Thickness(imgPlayer.Margin.Left + 2, imgPlayer.Margin.Top, 0, 0)
+
+    End Sub
+
+
+    Private Sub MoveUp()
+
+        imgPlayer.Margin = New Thickness(imgPlayer.Margin.Left, imgPlayer.Margin.Top - 2, 0, 0)
+
+    End Sub
+
+    Private Sub MoveDown()
+
+        imgPlayer.Margin = New Thickness(imgPlayer.Margin.Left, imgPlayer.Margin.Top + 2, 0, 0)
 
     End Sub
 
@@ -283,6 +321,7 @@ Class MainWindow
             currentRoom = gameRooms(nextRoomName)
             UpdateRoomDisplay()
             AddToLog("You moved south into " & currentRoom.Name & ".")
+            AddToLog("Oh no, the doors have locked! I must find a key.")
         Else
             AddToLog("There is no path to the south.")
         End If
@@ -337,7 +376,8 @@ Class MainWindow
         lightsOn = Not lightsOn
 
         If lightsOn Then
-            AddToLog("Lights turned ON")
+            AddToLog("Lights turned ON . . . What is this place?")
+            AddToLog("The faster I find a radio, the faster I can leave this hell hole.")
         Else
             AddToLog("Lights turned OFF")
         End If
@@ -356,9 +396,9 @@ Class MainWindow
 
         ' Change background based on lights
         If lightsOn Then
-            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\BreakerOn.png"))
+            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\[2] Main Game Screen (2) (Anthony).png"))
         Else
-            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\BreakerOff.png"))
+            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG"))
         End If
 
 
@@ -368,7 +408,7 @@ Class MainWindow
         btnSouth.Visibility = If(currentRoom.Exits.ContainsKey("South"), Visibility.Visible, Visibility.Collapsed)
         btnEast.Visibility = If(currentRoom.Exits.ContainsKey("East"), Visibility.Visible, Visibility.Collapsed)
         btnWest.Visibility = If(currentRoom.Exits.ContainsKey("West"), Visibility.Visible, Visibility.Collapsed)
-
+        btnLightSwitch.Visibility = If(currentRoom.Exits.ContainsKey("North"), Visibility.Visible, Visibility.Collapsed)
         ' Show enemy/NPC/item status
         If currentRoom.Enemy IsNot Nothing AndAlso currentRoom.Enemy.IsAlive() Then
             lblEnemyStatus.Content = "Enemy present: " & currentRoom.Enemy.Name
@@ -390,8 +430,6 @@ Class MainWindow
             imgPlayer.Margin = New Thickness(0, 0, 0, 40)
 
 
-            lblEnemyStatus.Content = "Room is clear."
-            btnAttack.Visibility = Visibility.Collapsed
         End If
     End Sub
 
