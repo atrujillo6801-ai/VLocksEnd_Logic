@@ -15,13 +15,18 @@ Public Class SaveData
     Public Property Inventory As New List(Of String)
 End Class
 Class MainWindow
-
+    Enum MoveKey
+        Left = 0
+        Right = 1
+        Up = 2
+        Down = 3
+    End Enum
     Dim currentRoom As Room 'we are declaring that whenever we see the container named currentRoom, it is holding something that was created from the blueprint class of Room.Notice that this is not creating something new, it's just telling the code what to read whatever is in the container "current room"
     Dim gameRooms As Dictionary(Of String, Room) ' We state that whenever we want to access a room, we will look it up in this dictionary by name. This allows us to easily manage multiple rooms and their connections.
     Dim player As Player ' Needed to be declared so that subroutines know what to read it as. In this case the container labeled "player" is holding something created from the blueprint class of Player. Notice that this is not a creation just a clarification of HOW to read that data as.
     Dim lightsOn As Boolean = False
-
-
+    Dim leftKey As Boolean
+    Dim RightKey As Boolean
 
     Public Sub New()
         InitializeComponent()
@@ -79,15 +84,42 @@ Class MainWindow
         UpdateHealthBars()
         UpdateInventoryDisplay()
         AddToLog("Welcome to the dungeon.")
+
+
+
+        AddHandler CompositionTarget.Rendering, AddressOf GameLoop
+
+
     End Sub
 
+    Private Sub GameLoop()
+
+        If leftKey Then CheckKeyToMove(MoveKey.Left)
+        If RightKey Then CheckKeyToMove(MoveKey.Right)
+
+
+
+
+    End Sub
+
+    Private Sub CheckKeyToMove(isKeyMove As MoveKey)
+        Select Case isKeyMove
+            Case isKeyMove.Left
+                MoveLeft()
+            Case isKeyMove.Right
+                MoveRight()
+            Case Else
+
+
+        End Select
+    End Sub
 
     'Character Motion with arrow keys
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs) Handles DeadEncounterGame.KeyDown
 
         If e.Key = Key.Right Then
 
-            MoveRight()
+            RightKey = True
 
         End If
 
@@ -95,7 +127,29 @@ Class MainWindow
 
         If e.Key = Key.Left Then
 
-            MoveLeft()
+            leftKey = True
+
+        End If
+
+
+
+
+
+    End Sub
+
+    Private Sub Window_KeyUp(sender As Object, e As KeyEventArgs) Handles DeadEncounterGame.KeyUp
+
+        If e.Key = Key.Right Then
+
+            RightKey = False
+
+        End If
+
+
+
+        If e.Key = Key.Left Then
+
+            leftKey = False
 
         End If
 

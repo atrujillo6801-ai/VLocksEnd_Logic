@@ -1,5 +1,10 @@
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Data\save.json
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.exe
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOff.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOn.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Player.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Zombie.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[3] COMBATSCREEN (andy).png
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.deps.json
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.runtimeconfig.json
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.dll
@@ -8,7 +13,6 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.vbproj.AssemblyReference.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\MainWindow.g.vb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\Application.g.vb
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.vb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_MarkupCompile.lref
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\MainWindow.baml
@@ -24,8 +28,3 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.pdb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.genruntimeconfig.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\ref\DeadEncounterGame.dll
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOff.png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOn.png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Player.png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Zombie.png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[3] COMBATSCREEN (andy).png
