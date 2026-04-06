@@ -113,10 +113,7 @@ Class MainWindow
                 MoveLeft()
             Case isKeyMove.Right
                 MoveRight()
-            Case isKeyMove.Up
-                MoveUp()
-            Case isKeyMove.Down
-                MoveDown()
+
             Case Else
 
 
