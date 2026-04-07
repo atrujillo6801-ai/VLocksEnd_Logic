@@ -87,7 +87,7 @@ Class MainWindow
         UpdateRoomDisplay()
         UpdateHealthBars()
         UpdateInventoryDisplay()
-        AddToLog("Welcome to the dungeon.")
+        AddToLog("My plane was shot down. Maybe this building will provide the means to my escape.")
 
 
 
