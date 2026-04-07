@@ -52,8 +52,7 @@
        HorizontalAlignment="Left"
        VerticalAlignment="Bottom"
        Margin="0,0,0,0"
-       Source="C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\Player.png"
-       Panel.ZIndex="2"/>
+       Panel.ZIndex="2" Source="/Assets/images/Player.png"/>
 
             <!-- Zombie: Room view -->
             <Image x:Name="imgEnemy"
@@ -63,9 +62,9 @@
        HorizontalAlignment="Right"
        VerticalAlignment="Bottom"
        Margin="0,0,40,40"
-       Source="C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\[2] Big Zombie (Anthony).png"
+       Source="/Assets/images/Zombie.png"
        Visibility="Collapsed"
-       Panel.ZIndex="2"/>
+       Panel.ZIndex="2" />
             
             <TextBox x:Name="txtRoomDescription" HorizontalAlignment="Center" 
                      Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" 

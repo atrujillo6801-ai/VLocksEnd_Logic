@@ -2,8 +2,9 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.exe
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOff.png
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\BreakerOn.png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Player.png
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Zombie.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony).png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[3] COMBATSCREEN (andy).png
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.deps.json
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\DeadEncounterGame.runtimeconfig.json
@@ -28,6 +29,6 @@ C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Deb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.pdb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame.genruntimeconfig.cache
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\ref\DeadEncounterGame.dll
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony).png
-C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\Player.png
+C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\obj\Debug\net8.0-windows\DeadEncounterGame_Content.g.vb
 C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\bin\Debug\net8.0-windows\Assets\images\[2] Big Zombie (Anthony).png

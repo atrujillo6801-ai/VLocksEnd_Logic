@@ -1,8 +1,9 @@
 ﻿' Add to the top of MainWindow.vb
 
-Imports Newtonsoft.Json
 Imports System.IO
+Imports System.Runtime.InteropServices.JavaScript.JSType
 Imports Microsoft.VisualBasic
+Imports Newtonsoft.Json
 
 ' Simple class to hold save data (put this OUTSIDE the MainWindow class)
 Public Class SaveData
@@ -30,6 +31,10 @@ Class MainWindow
     Dim rightKey As Boolean
     Dim upKey As Boolean
     Dim downKey As Boolean
+
+    Dim basePath As String = System.IO.Directory.GetCurrentDirectory()
+    Dim relativePath As String =""
+    Dim fullPath As String = Path.Combine(basePath, relativePath)
 
     Public Sub New()
         InitializeComponent()
@@ -393,9 +398,13 @@ Class MainWindow
 
         ' Change background based on lights
         If lightsOn Then
-            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\[2] Main Game Screen (2) (Anthony).png"))
+            relativePath = "Assets\images\[2] Main Game Screen (2) (Anthony).png"
+            imgRoom.Source = New BitmapImage(New Uri(basePath + "/" + relativePath))
+
         Else
-            imgRoom.Source = New BitmapImage(New Uri("C:\Users\atruj\Desktop\LogicDepartment\VLocksEnd_Logic\DeadEncounterGame\Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG"))
+
+            relativePath = "Assets\images\[2] Main Game Screen (2) (Anthony)_PowerOff.PNG"
+            imgRoom.Source = New BitmapImage(New Uri(basePath + "/" + relativePath))
         End If
 
 
